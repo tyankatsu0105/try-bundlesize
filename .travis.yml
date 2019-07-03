@@ -13,28 +13,14 @@ branches:
 
 stages:
   - name: Test
-  - name: Report
+  - name: Check Bundlesize
     if: NOT branch = production
-  - name: Deploy
-    if: branch = production AND type = push
 
 jobs:
   include:
     - stage: Test
       script: yarn test
-    - stage: Report
+    - stage: Check Bundlesize
       script: 
-        - yarn report
-        - yarn danger ci
-    - stage: Deploy
-      script: skip
-      before_deploy:
-        - npm install netlify-cli -g
         - yarn build
-
-      deploy:
-        provider: script
-        script: netlify deploy -s $NETLIFY_SITE_ID --auth $NETLIFY_PUBLISH_KEY -p --dir ./dist
-        skip_cleanup: true
-        on:
-          branch: production
+        - yarn bundlesize
