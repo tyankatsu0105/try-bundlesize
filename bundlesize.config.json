@@ -1,14 +1,8 @@
 {
   "files": [
     {
-      "path": "./dist/js/*.js"
-    },
-    {
-      "path": "./dist/css/*.css"
-    },
-    {
-      "path": "./dist/img/*",
-      "compression": "none"
+      "path": "yarn.lock",
+      "maxSize": "140 kB"
     }
   ]
 }
