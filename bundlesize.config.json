@@ -1,7 +1,8 @@
 {
   "files": [
     {
-      "path": "yarn.lock"
+      "path": "yarn.lock",
+      "maxSize": "140 kB"
     }
   ]
 }
